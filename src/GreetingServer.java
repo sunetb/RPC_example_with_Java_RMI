@@ -9,11 +9,13 @@ public class GreetingServer {
     public static void main(String[] arg) throws Exception
     {
 
+        //Initialise "skeleton" = stub
         GreetingImpl service = new GreetingImpl(9010);
 
+        //Registry does the "magic": creating a namespace, defining a port and so on
         Registry reg = java.rmi.registry.LocateRegistry.createRegistry(9010); //
-
         reg.rebind("greeting", service);
-        System.out.println("Service is now registered.");
+
+        System.out.println("Service is now listening...");
     }
 }
